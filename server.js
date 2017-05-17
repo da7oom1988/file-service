@@ -9,8 +9,8 @@ app.use(express.static(__dirname + '/public'));
 var upload = multer({dest: 'uploads/'});
 
 app.post('/upload',upload.single('file'),function(req,res){
-    res.json(req.file);
-    res.end();
+    return res.json({"name":req.file.originalname ,  "size":req.file.size + "byte"});
+
 });
 
 
